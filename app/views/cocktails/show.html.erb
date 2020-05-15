@@ -12,13 +12,14 @@
   <h3> Recipe </h3>
   <ul>
     <% @cocktail.doses.each do |dose| %>
-    <li> <%= dose.description %> </li>
-    <%= link_to "🗑 Dose", dose_path(dose), method: :delete %>
+    <li> <%= dose.description %>
+    <% @cocktail.ingredients.each do |ingredient| %>
+    <%= ingredient.name %>
+    <%= link_to "🗑", dose_path(dose), method: :delete %>
+    </li>
     <% end %>
   </ul>
   <ul>
-    <% @cocktail.ingredients.each do |ingredient| %>
-    <li> <%= ingredient.name %> </li>
     <% end %>
   </ul>
   <%= link_to "All cocktails 🍸", cocktails_path  %>
